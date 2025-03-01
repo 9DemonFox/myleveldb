@@ -50,9 +50,11 @@ target_sources(leveldb
   PRIVATE
     "util/coding.h" "util/coding.cc"
     "port/port.h"
+    "util/status.cc"
 
     # Public headers.
     "${LEVELDB_PUBLIC_INCLUDE_DIR}/slice.h"
+    "${LEVELDB_PUBLIC_INCLUDE_DIR}/status.h"
 )
 
 target_include_directories(leveldb
@@ -120,6 +122,7 @@ if(LEVELDB_BUILD_TESTS)
       PRIVATE
         # "util/crc32c_test.cc"
         "util/coding_test.cc"
+        "util/status_test.cc"
     )
   endif(NOT BUILD_SHARED_LIBS)
   target_link_libraries(leveldb_tests leveldb gmock gtest gtest_main)
