@@ -36,7 +36,6 @@ configure_file(
   "${PROJECT_BINARY_DIR}/${LEVELDB_PORT_CONFIG_DIR}/port_config.h"
 )
 
-
 include_directories(
   "${PROJECT_BINARY_DIR}/include"
   "."
@@ -51,11 +50,20 @@ target_sources(leveldb
     "util/coding.h" "util/coding.cc"
     "port/port.h"
     "util/status.cc"
+    "util/env.cc"  
+    "util/posix_logger.h"
 
     # Public headers.
     "${LEVELDB_PUBLIC_INCLUDE_DIR}/slice.h"
     "${LEVELDB_PUBLIC_INCLUDE_DIR}/status.h"
+    "${LEVELDB_PUBLIC_INCLUDE_DIR}/env.h"
+
 )
+
+# target_sources(leveldb
+#     PRIVATE
+#     "util/posix_logger.h"
+# )
 
 target_include_directories(leveldb
   PUBLIC
@@ -123,6 +131,7 @@ if(LEVELDB_BUILD_TESTS)
         # "util/crc32c_test.cc"
         "util/coding_test.cc"
         "util/status_test.cc"
+        "util/posix_logger_test.cc"
     )
   endif(NOT BUILD_SHARED_LIBS)
   target_link_libraries(leveldb_tests leveldb gmock gtest gtest_main)
