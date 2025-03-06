@@ -8,7 +8,7 @@
 #include "gtest/gtest.h"
 
 namespace leveldb {
-TEST(PosixLogger, TinyTest) {
+TEST(PosixLogger, WriteTest_DemonFox) {
     {
         int fd = ::open("test.log", O_APPEND | O_WRONLY | O_CREAT, 0644);
         std::FILE* fp = fdopen(fd, "w");
