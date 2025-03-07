@@ -48,10 +48,14 @@ add_library(leveldb "")
 target_sources(leveldb
   PRIVATE
     "util/coding.h" "util/coding.cc"
-    "port/port.h"
+    "port/port.h" "port/port_stdcxx.h"
     "util/status.cc"
     "util/env.cc" "util/env_posix.cc"
     "util/posix_logger.h"
+    "util/crc32c.h" "util/crc32c.cc"
+    "db/log_format.h"
+    "db/log_writer.cc" "db/log_writer.h"
+
     # Public headers.
     "${LEVELDB_PUBLIC_INCLUDE_DIR}/slice.h"
     "${LEVELDB_PUBLIC_INCLUDE_DIR}/status.h"

@@ -16,3 +16,8 @@ configure_file(
 # Placement new
 https://blog.csdn.net/andrewgithub/article/details/138178765
  
+# 参考
+- leveldb 解读
+https://zhuanlan.zhihu.com/p/608790872
+- 日志格式
+https://zhuanlan.zhihu.com/p/35134533
